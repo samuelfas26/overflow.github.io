@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat&display=swap');
+
+/* Estilos globais */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background-color: black;
+  /* Cor de fundo padrão do site */
+  box-sizing: border-box;
+}
+
+/* Estilos para o fundo do efeito Matrix */
+.matrix-background {
+  position: relative;
+  /* Define a posição relativa para o body */
+}
+
+.matrix-background canvas {
+  position: fixed;
+  /* Fixa o canvas para cobrir toda a tela */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* Garante que o canvas não interfira com cliques */
+  z-index: -1;
+  /* Coloca o canvas atrás de outros elementos */
+}
+
+/* Estilos adicionais */
+:root {
+  --cor-principal: #000000;
+  --cor-secundaria: #FFFFFF;
+  --cor-tercearia: #4f6ae4;
+  --cor-hover: #272727;
+
+  --fonte-principal: 'Krona One', sans-serif;
+  --fonte-secundaria: 'Montserrat', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.cabecalho {
+  padding: 2% 0 0 15%;
+}
+
+.cabecalho__menu {
+  display: flex;
+  gap: 50px;
+}
+
+.cabecalho__menu__link {
+  display: inline-block;
+  padding: 10px 20px;
+  /* Ajuste o padding conforme necessário */
+  color: var(--cor-secundaria);
+  /* Cor do texto do botão */
+  background-color: var(--cor-principal);
+  /* Cor de fundo do botão */
+  border: 2px solid var(--cor-tercearia);
+  /* Borda azul */
+  border-radius: 8px;
+  /* Borda arredondada */
+  text-decoration: none;
+  /* Remove o sublinhado padrão dos links */
+  font-family: var(--fonte-secundaria);
+  /* Fonte dos botões */
+  font-weight: 600;
+  /* Peso da fonte */
+  transition: all 0.3s ease;
+  /* Adiciona uma transição suave para efeitos */
+}
+
+.cabecalho__menu__link:hover,
+.cabecalho__menu__link:focus {
+  background-color: var(--cor-tercearia);
+  /* Cor de fundo ao passar o mouse */
+  color: var(--cor-principal);
+  /* Cor do texto ao passar o mouse */
+  border-color: var(--cor-principal);
+  /* Cor da borda ao passar o mouse */
+  transform: scale(1.05);
+  /* Efeito de aumentar o tamanho ao passar o mouse */
+}
+
+body {
+  background-color: var(--cor-principal);
+  color: var(--cor-secundaria);
+}
+
+.titulo-destaque {
+  color: var(--cor-tercearia);
+}
+
+.apresentacao {
+  padding: 5% 15%;
+  gap: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.apresentacao__conteudo {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.apresentacao__conteudo__titulo {
+  font-size: 2.25rem;
+  font-weight: 300;
+  font-family: var(--fonte-principal);
+}
+
+.apresentacao__conteudo__texto {
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: var(--fonte-secundaria);
+}
+
+.apresentacao__conteudo__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 32px;
+}
+
+.apresentacao__conteudo__links__subtitulo {
+  font-family: var(--fonte-principal);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.apresentacao__conteudo__links__link {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  width: 375px;
+  color: var(--cor-secundaria);
+  text-align: center;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  padding: 21.5px 0;
+  border: 2px solid var(--cor-tercearia);
+  font-family: var(--fonte-secundaria);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.apresentacao__conteudo__links__link:hover {
+  background-color: var(--cor-hover);
+}
+
+.apresentacao__imagem-container {
+  position: relative;
+  width: 50%;
+  height: 0;
+  padding-top: 50%;
+  /* Mantém a proporção 1:1 */
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.apresentacao__imagem,
+.apresentacao__imagem-container .second-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.apresentacao__imagem {
+  z-index: 2;
+}
+
+.apresentacao__imagem-container .second-image {
+  opacity: 0;
+}
+
+.apresentacao__imagem-container:hover .apresentacao__imagem {
+  transform: rotateY(180deg);
+  opacity: 0;
+}
+
+.apresentacao__imagem-container:hover .second-image {
+  opacity: 1;
+  transform: rotateY(0);
+}
+
+.rodape {
+  color: var(--cor-principal);
+  padding: 24px;
+  font-family: var(--fonte-secundaria);
+  font-weight: 400;
+  font-size: 1.5rem;
+  text-align: center;
+  background-color: var(--cor-tercearia);
+}
+
+@media (max-width: 1200px) {
+  .cabecalho {
+    padding: 10%;
+  }
+
+  .cabecalho__menu {
+    justify-content: center;
+  }
+
+  .apresentacao {
+    flex-direction: column-reverse;
+    padding: 5%;
+  }
+
+  .apresentacao__conteudo {
+    width: auto;
+  }
+}
